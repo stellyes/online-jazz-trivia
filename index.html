@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Online Quiz</title>
+  </head>
+  <body>
+    <div class="start-menu">
+      <h1>HTML Quiz!</h1>
+      <div class="menu-options">
+        <button>Start</button>
+        <button>Leaderboard</button>
+      </div>
+    </div>
+    <div class="question">
+      <div class="stats">
+        <div class="timer"><span id="almost-out">0:00</span> remaining</div>
+        <div class="accuracy"></div>
+        <div class="score">Score: 00000</div>
+      </div>
+      <div class="question-card">
+        <h2 class="question-title">This is a question title</h2>
+        <ul class="answers">
+          <li tabindex="0">answer 1</li>
+          <li tabindex="1">answer 2</li>
+          <li tabindex="2">answer 3</li>
+          <li tabindex="3">answer 4</li>
+        </ul>
+        <button class="submit-answer">Submit</button>
+      </div>
+    </div>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
