@@ -1,74 +1,193 @@
 {
-  "question1": {
-    "questionPrompt": "This is a test question for debugging purposes.",
-    "answers": {
-      "answer1": "wrong",
-      "answer2": "wrong",
-      "answer3": "right",
-      "answer4": "wrong"
+  "list": [
+    {
+      "questionPrompt": "Miles Davis wrote over 60 studio albums playing what instrument in his band?",
+      "answers": [
+        {
+          "text": "Saxophone",
+          "correct": false
+        },
+        {
+          "text": "Piano",
+          "correct": false
+        },
+        {
+          "text": "Trumpet",
+          "correct": true
+        },
+        {
+          "text": "Drums",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "questionPrompt": "The sub-genre \"Cool Jazz\" emerged during what part of the 1900's?",
+      "answers": [
+        {
+          "text": "1990 - 2009",
+          "correct": false
+        },
+        {
+          "text": "1970 - 1989",
+          "correct": false
+        },
+        {
+          "text": "1950 - 1969",
+          "correct": true
+        },
+        {
+          "text": "1930 - 1949",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "questionPrompt": "What year was the first official \"Jazz\" recording ever produced?",
+      "answers": [
+        {
+          "text": "1931",
+          "correct": false
+        },
+        {
+          "text": "1911",
+          "correct": false
+        },
+        {
+          "text": "1917",
+          "correct": true
+        },
+        {
+          "text": "1899",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "questionPrompt": "Which person on this list is NOT considered to be a Jazz musician?",
+      "answers": [
+        {
+          "text": "Duke Ellington",
+          "correct": false
+        },
+        {
+          "text": "Bill Evans",
+          "correct": false
+        },
+        {
+          "text": "George Winston",
+          "correct": true
+        },
+        {
+          "text": "Sam Wilkes",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "questionPrompt": "#5 This is a test question for debugging purposes.",
+      "answers": [
+        {
+          "text": "wrong",
+          "correct": false
+        },
+        {
+          "text": "wrong",
+          "correct": false
+        },
+        {
+          "text": "right",
+          "correct": true
+        },
+        {
+          "text": "wrong",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "questionPrompt": "#6 This is a test question for debugging purposes.",
+      "answers": [
+        {
+          "text": "wrong",
+          "correct": false
+        },
+        {
+          "text": "wrong",
+          "correct": false
+        },
+        {
+          "text": "right",
+          "correct": true
+        },
+        {
+          "text": "wrong",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "questionPrompt": "#7 This is a test question for debugging purposes.",
+      "answers": [
+        {
+          "text": "wrong",
+          "correct": false
+        },
+        {
+          "text": "wrong",
+          "correct": false
+        },
+        {
+          "text": "right",
+          "correct": true
+        },
+        {
+          "text": "wrong",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "questionPrompt": "#8 This is a test question for debugging purposes.",
+      "answers": [
+        {
+          "text": "wrong",
+          "correct": false
+        },
+        {
+          "text": "wrong",
+          "correct": false
+        },
+        {
+          "text": "right",
+          "correct": true
+        },
+        {
+          "text": "wrong",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "questionPrompt": "#9 This is a test question for debugging purposes.",
+      "answers": [
+        {
+          "text": "wrong",
+          "correct": false
+        },
+        {
+          "text": "wrong",
+          "correct": false
+        },
+        {
+          "text": "right",
+          "correct": true
+        },
+        {
+          "text": "wrong",
+          "correct": false
+        }
+      ]
     }
-  },
-  "question2": {
-    "questionPrompt": "This is a test question for debugging purposes.",
-    "answers": {
-      "answer1": "right",
-      "answer2": "wrong",
-      "answer3": "wrong",
-      "answer4": "wrong"
-    }
-  },
-  "question3": {
-    "questionPrompt": "",
-    "answers": {
-      "answer1": "",
-      "answer2": "",
-      "answer3": "",
-      "answer4": ""
-    }
-  },
-  "question4": {
-    "questionPrompt": "",
-    "answers": {
-      "answer1": "",
-      "answer2": "",
-      "answer3": "",
-      "answer4": ""
-    }
-  },
-  "question5": {
-    "questionPrompt": "",
-    "answers": {
-      "answer1": "",
-      "answer2": "",
-      "answer3": "",
-      "answer4": ""
-    }
-  },
-  "question6": {
-    "questionPrompt": "",
-    "answers": {
-      "answer1": "",
-      "answer2": "",
-      "answer3": "",
-      "answer4": ""
-    }
-  },
-  "question7": {
-    "questionPrompt": "",
-    "answers": {
-      "answer1": "",
-      "answer2": "",
-      "answer3": "",
-      "answer4": ""
-    }
-  },
-  "question8": {
-    "questionPrompt": "",
-    "answers": {
-      "answer1": "",
-      "answer2": "",
-      "answer3": "",
-      "answer4": ""
-    }
-  }
+  ]
 }

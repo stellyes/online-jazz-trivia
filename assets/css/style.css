@@ -39,8 +39,9 @@ button {
   letter-spacing: 0.2rem;
   font-size: large;
   font-weight: bolder;
-  background-color: var(var(--sand));
-  border: 5px solid var(--light-blue);
+  color: white;
+  background-color: var(--light-blue);
+  border: 5px solid var(--light-purple);
   border-radius: 15px;
   align-self: baseline;
   transition: scale 0.4s ease;
@@ -74,6 +75,11 @@ button:hover {
   align-items: center;
 }
 
+#answer-reply {
+  font-size: larger;
+  position: fixed;
+}
+
 .question {
   display: none;
   flex-direction: column;
@@ -105,13 +111,13 @@ button:hover {
   font-size: medium;
 }
 
-.accuracy {
+.spacer {
   width: 500px;
 }
 
 .question-title {
   padding: 5%;
-  padding-bottom: 3%;
+  padding-bottom: 0%;
   align-self: center;
   font-size: x-large;
   font-weight: 600;
@@ -138,6 +144,7 @@ button:hover {
   transition: border 0.2s ease;
 }
 
+.answers li:focus,
 .answers li:hover {
   border: 3px solid var(--light-purple);
 }
@@ -148,7 +155,7 @@ button:hover {
   margin-top: 0.7%;
 }
 
-.end-game {
+#end-game {
   display: none;
   width: 800px;
   height: 350px;
@@ -156,4 +163,21 @@ button:hover {
   background: var(--sand);
   border: 5px solid var(--light-blue);
   border-radius: 25px;
+}
+
+#credits {
+  font-size: x-small;
+  position: fixed;
+  margin-bottom: -47%;
+  color: var(--sand);
+}
+
+#credits a {
+  text-decoration: none;
+  color: var(--sand);
+  transition: font-size 0.3s ease;
+}
+
+#credits a:hover {
+  font-size: small;
 }

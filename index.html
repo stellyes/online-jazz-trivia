@@ -5,37 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Online Quiz</title>
+    <title>Online Quiz Demo</title>
   </head>
   <body>
     <div class="start-menu">
-      <h1>HTML Quiz!</h1>
+      <h1>Jazz Quiz!</h1>
       <div class="menu-options">
-        <button id="start-button">Start</button>
-        <button>Leaderboard</button>
+        <button tabindex="1" id="start-button">Start</button>
+        <button tabindex="2">Leaderboard</button>
       </div>
     </div>
     <div class="question">
+      <div id="answerReply"></div>
       <div class="stats">
         <div class="timer"><span id="time"></span> remaining</div>
-        <div class="accuracy"></div>
-        <div class="score">Score: 00000</div>
+        <div class="spacer"></div>
+        <div class="scorecard">Score: <span id="score"></span></div>
       </div>
       <div class="question-card">
-        <h2 class="question-title">This is a question title</h2>
+        <h2 class="question-title"></h2>
         <ul class="answers">
-          <li tabindex="0">answer 1</li>
-          <li tabindex="1">answer 2</li>
-          <li tabindex="2">answer 3</li>
-          <li tabindex="3">answer 4</li>
+          <li tabindex="1"></li>
+          <li tabindex="2"></li>
+          <li tabindex="3"></li>
+          <li tabindex="4"></li>
         </ul>
         <div class="game-buttons">
-          <button id="submit-answer">Submit</button>
-          <button id="quit-game">Quit</button>
+          <button tabindex="5" id="submit-answer">Submit</button>
+          <button tabindex="6" id="quit-game">Quit</button>
         </div>
       </div>
     </div>
     <div id="end-game"></div>
+    <span id="credits">by Ryan England - <a href="https://linkedin.com/in/ryan-england-4909b3291/">LinkedIn</a> - <a href="https://github.com/stellyes">GitHub</a><span>
     <script type="module" src="./assets/js/script.js"></script>
   </body>
 </html>
