@@ -1,3 +1,7 @@
+import questions from "./questions.json" assert { type: "json" };
+
+console.log(questions);
+
 var startMenu = document.querySelector(".start-menu");
 var startButton = document.querySelector("#start-button");
 var leaderboardButton = document.querySelector("#leaderboard-button");
@@ -21,8 +25,9 @@ quitButton.addEventListener("click", function () {
   questionView.removeAttribute("style", "display: flex");
 });
 
+// Needs work
 function endScreen() {
-  questionView.removeAttribute("style", "display: flex");
+  questionView.removeAttribute("style", "display: none");
   endGameView.setAttribute("style", "display: flex");
 }
 
@@ -62,3 +67,7 @@ function countdown() {
     secondsRemaining--;
   }, 1000);
 }
+
+function fillQuestion() {}
+
+function questionLogic() {}
