@@ -11,13 +11,13 @@
     <div class="start-menu">
       <h1>HTML Quiz!</h1>
       <div class="menu-options">
-        <button>Start</button>
+        <button id="start-button">Start</button>
         <button>Leaderboard</button>
       </div>
     </div>
     <div class="question">
       <div class="stats">
-        <div class="timer"><span id="almost-out">0:00</span> remaining</div>
+        <div class="timer"><span id="time"></span> remaining</div>
         <div class="accuracy"></div>
         <div class="score">Score: 00000</div>
       </div>
@@ -29,9 +29,13 @@
           <li tabindex="2">answer 3</li>
           <li tabindex="3">answer 4</li>
         </ul>
-        <button class="submit-answer">Submit</button>
+        <div class="game-buttons">
+          <button id="submit-answer">Submit</button>
+          <button id="quit-game">Quit</button>
+        </div>
       </div>
     </div>
+    <div id="end-game"></div>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
