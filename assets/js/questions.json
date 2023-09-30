@@ -85,43 +85,43 @@
       ]
     },
     {
-      "questionPrompt": "#5 This is a test question for debugging purposes.",
+      "questionPrompt": "Thelonious Monk had a habit of doing WHAT during his live performances?",
       "answers": [
         {
-          "text": "wrong",
+          "text": "Lighting a cigarette",
           "correct": false
         },
         {
-          "text": "wrong",
+          "text": "Forgetting his part of the song",
           "correct": false
         },
         {
-          "text": "right",
+          "text": "Standing up and dancing around the stage mid-song",
           "correct": true
         },
         {
-          "text": "wrong",
+          "text": "Heckling the crowd back if provoked",
           "correct": false
         }
       ]
     },
     {
-      "questionPrompt": "#6 This is a test question for debugging purposes.",
+      "questionPrompt": "Bill Evans released his landmark album \"You Must Believe In Spring\" in what year?",
       "answers": [
         {
-          "text": "wrong",
+          "text": "1979",
           "correct": false
         },
         {
-          "text": "wrong",
+          "text": "1954",
           "correct": false
         },
         {
-          "text": "right",
+          "text": "1981",
           "correct": true
         },
         {
-          "text": "wrong",
+          "text": "1998",
           "correct": false
         }
       ]

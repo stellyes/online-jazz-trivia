@@ -52,7 +52,6 @@ button:hover {
 }
 
 .start-menu {
-  display: none;
   align-items: center;
   margin-top: 40%;
   width: 100%;
@@ -152,7 +151,7 @@ button:hover {
 }
 
 #end-game {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 800px;

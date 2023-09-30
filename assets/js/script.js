@@ -211,5 +211,5 @@ quitButton.addEventListener("click", function () {
 
 returnHomeButton.addEventListener("click", function () {
   endGameView.removeAttribute("style", "display: flex");
-  startMenu.setAttribute("style", "display: flex");
+  startMenu.removeAttribute("style", "display: none");
 });
