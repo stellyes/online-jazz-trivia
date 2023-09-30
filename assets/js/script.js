@@ -9,27 +9,40 @@ var questionView = document.querySelector(".question");
 var questionTitle = document.querySelector(".question-title");
 var questionAnswers = document.querySelector(".answers");
 var timerEl = document.querySelector("#time");
-var timeInterval; // Global time variable to prevent overlapping conflict
-var answerReply = document.querySelector("#answer-reply");
+var timeInterval; // Global time variable to prevent overlapping session conflict
+var answerReply = document.querySelector(".spacer");
 var scoreEl = document.querySelector("#score");
 var submitButton = document.querySelector("#submit-answer");
 var quitButton = document.querySelector("#quit-game");
 
 var endGameView = document.querySelector("#end-game");
+var endGameTitle = document.querySelector(".game-header");
+var endGameTime = document.querySelector("#time-remaining");
+var endGameScore = document.querySelector("#end-score");
+var returnHomeButton = document.querySelector("#return-home");
+var viewLeaderboardEnd = document.querySelector("#leaderboard-button");
 
 // List of questions, index of current question,
 // and selected answer object
 var questionList = questions.list;
 var currentQuestion = 0;
 var selectedAnswer = { default: "value" };
+
+// Stats used globally and reset when game sarts
 var secondsRemaining = 540;
 var currentScore = 0;
 
+// Displayed when user answers question
 var correctAnswer = "Correct! ✅";
 var incorrectAnswer = "Incorrect! ❌";
 
+// Displayed when game is finished
+var playerLost = "❌ You lose! ❌";
+var playerWon = "✨ You Win! ✨";
+
 // Implementation of the Fisher-Yates shuffle
 // To randomize order of questions each game start
+// https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
 function fisherYates(array) {
   for (var i = array.length - 1; i > 0; i--) {
     var j = i;
@@ -67,6 +80,21 @@ function fadeElement(element) {
 function endScreen() {
   questionView.removeAttribute("style", "display: none");
   endGameView.setAttribute("style", "display: flex");
+
+  // If user makes it through all the questitons such that
+  // currentQuestion === last index of questionList
+  if (currentQuestion === questionList.length - 1) {
+    endGameTitle.textContent = playerWon;
+  } else {
+    endGameTitle.textContent = playerLost;
+  }
+
+  // Display final score and time
+  endGameTime.textContent =
+    Math.floor(secondsRemaining / 60) +
+    ":" +
+    ("00" + (secondsRemaining % 60)).slice(-2);
+  endGameScore.textContent = ("00000" + currentScore).slice(-5);
 }
 
 function countdown() {
@@ -159,6 +187,8 @@ submitButton.addEventListener("click", function () {
     endScreen();
   }
 
+  console.log("we tried to submit");
+
   if (selectedAnswer["correct"] === true) {
     answerReply.textContent = correctAnswer;
   } else {
@@ -177,4 +207,9 @@ quitButton.addEventListener("click", function () {
   clearInterval(timeInterval);
   startMenu.removeAttribute("style", "display: none");
   questionView.removeAttribute("style", "display: flex");
+});
+
+returnHomeButton.addEventListener("click", function () {
+  endGameView.removeAttribute("style", "display: flex");
+  startMenu.setAttribute("style", "display: flex");
 });

@@ -12,11 +12,10 @@
       <h1>Jazz Quiz!</h1>
       <div class="menu-options">
         <button tabindex="1" id="start-button">Start</button>
-        <button tabindex="2">Leaderboard</button>
+        <button tabindex="2" id="leaderboard-button">Leaderboard</button>
       </div>
     </div>
     <div class="question">
-      <div id="answerReply"></div>
       <div class="stats">
         <div class="timer"><span id="time"></span> remaining</div>
         <div class="spacer"></div>
@@ -36,7 +35,17 @@
         </div>
       </div>
     </div>
-    <div id="end-game"></div>
+    <div id="end-game">
+        <h1 class="game-header">You win!</h1>
+        <ul class="game-results">
+          <li>Time Remaining: <span id="time-remaining">0:00</span></li>
+          <li>Score: <span id="end-score">00000</span></li>
+        </ul>
+        <div class="menu-options">
+          <button tabindex="1" id="return-home">Quit</button>
+          <button tabindex="2" id="leaderboard-button">Leaderboard</button>
+        </div>
+    </div>
     <span id="credits">by Ryan England - <a href="https://linkedin.com/in/ryan-england-4909b3291/">LinkedIn</a> - <a href="https://github.com/stellyes">GitHub</a><span>
     <script type="module" src="./assets/js/script.js"></script>
   </body>

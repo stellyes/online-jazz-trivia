@@ -52,10 +52,10 @@ button:hover {
 }
 
 .start-menu {
+  display: none;
   align-items: center;
   margin-top: 40%;
   width: 100%;
-  transition: display 0.5s ease;
 }
 
 .start-menu h1 {
@@ -75,11 +75,6 @@ button:hover {
   align-items: center;
 }
 
-#answer-reply {
-  font-size: larger;
-  position: fixed;
-}
-
 .question {
   display: none;
   flex-direction: column;
@@ -88,7 +83,6 @@ button:hover {
   width: 100%;
   height: 100%;
   max-height: 360px;
-  transition: display 0.5s ease;
 }
 
 .question-card {
@@ -112,6 +106,8 @@ button:hover {
 }
 
 .spacer {
+  font-size: large;
+  align-items: center;
   width: 500px;
 }
 
@@ -156,13 +152,36 @@ button:hover {
 }
 
 #end-game {
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 800px;
   height: 350px;
   flex-direction: column;
   background: var(--sand);
   border: 5px solid var(--light-blue);
   border-radius: 25px;
+}
+
+.game-header {
+  padding-top: 10%;
+  font-size: 70px;
+  color: var(--deep-purple);
+  text-shadow: 8px 8px 8px #9065c4;
+}
+
+.game-results {
+  padding: 2%;
+  padding-top: 10%;
+  list-style: none;
+  color: var(--midnight-purple);
+}
+
+.game-results li {
+  font-size: large;
+  text-align: center;
+  width: 100%;
+  padding: 5%;
 }
 
 #credits {
