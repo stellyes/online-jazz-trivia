@@ -39,8 +39,9 @@ button {
   letter-spacing: 0.2rem;
   font-size: large;
   font-weight: bolder;
-  background-color: var(var(--sand));
-  border: 5px solid var(--light-blue);
+  color: white;
+  background-color: var(--light-blue);
+  border: 5px solid var(--light-purple);
   border-radius: 15px;
   align-self: baseline;
   transition: scale 0.4s ease;
@@ -54,7 +55,6 @@ button:hover {
   align-items: center;
   margin-top: 40%;
   width: 100%;
-  transition: display 0.5s ease;
 }
 
 .start-menu h1 {
@@ -82,7 +82,6 @@ button:hover {
   width: 100%;
   height: 100%;
   max-height: 360px;
-  transition: display 0.5s ease;
 }
 
 .question-card {
@@ -100,18 +99,19 @@ button:hover {
   display: flex;
   flex-direction: row;
   height: 22px;
-  align-self: center;
   z-index: 1;
   font-size: medium;
 }
 
-.accuracy {
+.spacer {
+  text-align: center;
+  align-self: flex-start;
   width: 500px;
 }
 
 .question-title {
   padding: 5%;
-  padding-bottom: 3%;
+  padding-bottom: 0%;
   align-self: center;
   font-size: x-large;
   font-weight: 600;
@@ -129,7 +129,7 @@ button:hover {
 .answers li {
   align-self: center;
   padding: 12px 0px;
-  width: 80%;
+  width: 87%;
   text-align: center;
   font-size: medium;
   color: #1f0c35;
@@ -138,6 +138,7 @@ button:hover {
   transition: border 0.2s ease;
 }
 
+.answers li:focus,
 .answers li:hover {
   border: 3px solid var(--light-purple);
 }
@@ -148,6 +149,104 @@ button:hover {
   margin-top: 0.7%;
 }
 
-.end-game {
+#end-game {
   display: none;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 350px;
+  flex-direction: column;
+  background: var(--sand);
+  border: 5px solid var(--light-blue);
+  border-radius: 25px;
+}
+
+.game-header {
+  padding-top: 10%;
+  font-size: 70px;
+  color: var(--deep-purple);
+  text-shadow: 8px 8px 8px #9065c4;
+}
+
+.game-results {
+  padding: 2%;
+  padding-top: 10%;
+  list-style: none;
+  color: var(--midnight-purple);
+}
+
+.game-results li {
+  font-size: large;
+  text-align: center;
+  width: 100%;
+  padding: 5%;
+}
+
+#credits {
+  font-size: x-small;
+  position: fixed;
+  margin-bottom: -47%;
+  color: var(--sand);
+}
+
+#credits a {
+  text-decoration: none;
+  color: var(--sand);
+  transition: font-size 0.3s ease;
+}
+
+#credits a:hover {
+  font-size: small;
+}
+
+#leaderboard-view {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 400px;
+  flex-direction: column;
+  background: var(--sand);
+  border: 5px solid var(--light-blue);
+  border-radius: 25px;
+}
+
+#leaderboard-view h1 {
+  color: var(--midnight-purple);
+  text-shadow: 3px 5px 5px var(--light-blue);
+  font-size: 40px;
+  margin-top: 10%;
+}
+
+#leaderboard-positions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  list-style: none;
+  padding: 25px;
+  width: 70%;
+  height: 70%;
+  margin-top: -1%;
+  margin-bottom: -4%;
+}
+
+#leaderboard-positions li {
+  display: flex;
+  align-items: center;
+  color: var(--midnight-purple);
+  background-color: rgba(68, 119, 206, 0.5);
+  border-radius: 15px;
+  width: 100%;
+  height: 30px;
+  padding: 2px 15px;
+  letter-spacing: 0.05rem;
+}
+
+#back-button {
+  align-self: center;
+}
+
+.separator {
+  width: 800px;
 }
