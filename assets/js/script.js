@@ -23,7 +23,9 @@ var endGameScore = document.querySelector("#end-score");
 var returnHomeButton = document.querySelector("#return-home");
 
 var leaderboardView = document.querySelector("#leaderboard-view");
+var leaderboardPosition = document.querySelector("#leaderboard-positions");
 var leaderboardPrevious = ""; // To redirect user back to previous view
+getLeaderboardList();
 
 // List of questions, index of current question,
 // and selected answer object
@@ -66,49 +68,17 @@ function fisherYates(array) {
 }
 
 // Creates new leaderboard in local storage. Abstracted for readability
-function newLeaderboard() {
-  localStorage.setItem("top-winners", [
-    {
-      name: "BOT",
-      score: 1000,
-    },
-    {
-      name: "BOT",
-      score: 900,
-    },
-    {
-      name: "BOT",
-      score: 800,
-    },
-    {
-      name: "BOT",
-      score: 700,
-    },
-    {
-      name: "BOT",
-      score: 600,
-    },
-    {
-      name: "BOT",
-      score: 500,
-    },
-    {
-      name: "BOT",
-      score: 400,
-    },
-    {
-      name: "BOT",
-      score: 300,
-    },
-    {
-      name: "BOT",
-      score: 200,
-    },
-    {
-      name: "BOT",
-      score: 100,
-    },
-  ]);
+function getLeaderboardList() {
+  // Try and pull first place name/score
+  var testLeaderboard = localStorage.getItem("0");
+
+  // If first place doesn't exist, neither does the rest
+  // of the positions, so we generate the filler data
+  if (testLeaderboard === null) {
+    for (var i = 0; i < 10; i++) {
+      localStorage.setItem(`${i}`, `BOT ${1000 - i * 100}`);
+    }
+  }
 }
 
 // Purely decorational. Fades elements in and out.
@@ -125,11 +95,8 @@ function fadeElement(element) {
   }, 20);
 }
 
-// Needs work
+// Displays ending screen for user
 function endScreen() {
-  questionView.removeAttribute("style", "display: none");
-  endGameView.setAttribute("style", "display: flex");
-
   // If user makes it through all the questitons such that
   // currentQuestion === last index of questionList
   if (currentQuestion === questionList.length - 1) {
@@ -144,6 +111,9 @@ function endScreen() {
     ":" +
     ("00" + (secondsRemaining % 60)).slice(-2);
   endGameScore.textContent = ("00000" + currentScore).slice(-5);
+
+  endGameView.setAttribute("style", "display: flex");
+  questionView.removeAttribute("style", "display: flex");
 }
 
 function countdown() {
@@ -212,17 +182,10 @@ function fillQuestion() {
 
 // Checks leaderboard for new high score
 function checkLeaderboard() {
-  // Get leaderboard list for comparison
-  var leaderboardList = localStorage.getItem("top-winners");
-
-  // If leaderboardList does not exist in local storage, create
-  if (leaderboardList === null || leaderboardList.length === 0) {
-    newLeaderboard();
-  }
-
   // Checks current score against
-  for (var i = 0; i < leaderboardList.length; i++) {
-    if (currentScore > leaderboardList[i]) {
+  for (var i = 0; i < 10; i++) {
+    var testAgainst = localStorage.getItem(i).split(" ");
+    if (currentScore > testAgainst[1]) {
       // Proper prompt output for placement
       if (i === 0) {
         var place = "1st";
@@ -239,12 +202,50 @@ function checkLeaderboard() {
         `Congratulations! You placed ${place} on the leaderboard!`,
         "Enter your initials"
       );
+
+      // Validate user input
       while (initials.length > 3) {
         initials = prompt(
           "Please enter your initials, maximum of three characters",
           "Enter your initials"
         );
       }
+
+      // Remove last item in localStorage to make room
+      // for new entry
+      localStorage.removeItem("9");
+
+      // Used to shuffle rest of positions in localStorage
+      for (var j = 9; j != i; j--) {
+        var placeholder = localStorage.getItem(j - 1);
+        localStorage.setItem(`${j}`, placeholder);
+      }
+      // Update entry in local storage
+      localStorage.setItem(`${i}`, `${initials} ${currentScore}`);
+      break;
+    }
+  }
+}
+
+function fillLeaderboard() {
+  var leaderboardStats = "";
+  // Fill leaderboard with corresponding values
+  for (var i = 0; i < 10; i++) {
+    // Split item by space to get initials and score
+    leaderboardStats = localStorage.getItem(i).split(" ");
+    leaderboardPosition.children[i].children[0].textContent =
+      leaderboardStats[0];
+    leaderboardPosition.children[i].children[2].textContent = (
+      "00000" + leaderboardStats[1]
+    ).slice(-5);
+
+    // Even placements alternate background color
+    // for increased contrast and readability
+    if (i % 2 !== 0) {
+      leaderboardPosition.children[i].setAttribute(
+        "style",
+        "background-color: rgba(144, 101, 196, 0.5)"
+      );
     }
   }
 }
@@ -274,9 +275,15 @@ submitButton.addEventListener("click", function () {
   if (currentQuestion === questionList.length - 1) {
     clearInterval(timeInterval);
     endScreen();
-    checkLeaderboard();
+    // One second delay on checkLeaderboard to
+    // allow endScreen to render
+    setTimeout(function () {
+      checkLeaderboard();
+    }, 1000);
   }
 
+  // Display correct/incorrect message when user
+  // answers a question
   if (selectedAnswer["correct"] === true) {
     answerReply.textContent = correctAnswer;
   } else {
@@ -303,12 +310,17 @@ returnHomeButton.addEventListener("click", function () {
 });
 
 leaderboardButton.addEventListener("click", function () {
+  // Fill leaderboard with most recent stats
+  fillLeaderboard();
+
+  // Hides corresponding HTML elements depending on what screen
+  // user is selecting leaderboard from
   if (endGameView.getAttribute("style") === "display: flex") {
     endGameView.removeAttribute("style", "display: flex");
     leaderboardView.setAttribute("style", "display: flex");
     leaderboardPrevious = "endGame";
   } else {
-    startMenu.removeAttribute("style", "display: flex");
+    startMenu.setAttribute("style", "display: none");
     leaderboardView.setAttribute("style", "display: flex");
     leaderboardPrevious = "startMenu";
   }
@@ -317,9 +329,13 @@ leaderboardButton.addEventListener("click", function () {
 backButton.addEventListener("click", function () {
   leaderboardView.removeAttribute("style", "display: flex");
 
+  // Direct user back to the corresponding previous screen
   if (leaderboardPrevious === "startMenu") {
-    startMenu.setAttribute("style", "display: flex");
+    startMenu.removeAttribute("style", "display: none");
   } else if (leaderboardPrevious === "endGame") {
     leaderboardView.setAttribute("style", "display: flex");
   }
+
+  // Reset leaderboardPrevious
+  leaderboardPrevious = "";
 });

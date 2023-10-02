@@ -148,22 +148,22 @@
       ]
     },
     {
-      "questionPrompt": "Who were the members of Miles Davis' second quintet?",
+      "questionPrompt": "Who were the other four members of Miles Davis' second quintet?",
       "answers": [
         {
-          "text": "Miles Davis, John Coltrane, Philly Joe Jones, Scott LaFaro, Bill Evans",
+          "text": "John Coltrane, Philly Joe Jones, Scott LaFaro, Bill Evans",
           "correct": false
         },
         {
-          "text": "Miles Davis, Max Roach, George Morrow, Harold Land, Richie Powell",
+          "text": "Max Roach, George Morrow, Harold Land, Richie Powell",
           "correct": false
         },
         {
-          "text": "Miles Davis, Wayne Shorter, Tony Williams, Ron Carter, Herbie Hancock",
+          "text": "Wayne Shorter, Tony Williams, Ron Carter, Herbie Hancock",
           "correct": true
         },
         {
-          "text": "Miles Davis, Freddie Hubbard, Wynton Marsalis, Clifford Brown, Dizzy Gillespie",
+          "text": "Freddie Hubbard, Wynton Marsalis, Clifford Brown, Dizzy Gillespie",
           "correct": false
         }
       ]
@@ -172,19 +172,61 @@
       "questionPrompt": "What was \"Hard Bop\"?",
       "answers": [
         {
-          "text": "Something musicians would say on stage when they liked how the performance was going",
+          "text": "Musicians would say this stage when they liked how the performance was going",
           "correct": false
         },
         {
-          "text": "It was a precursor to Bebop music, laying the groundwork for future Bebop musicians",
+          "text": "A subgenre of jazz, laying the groundwork for future Bebop musicians",
           "correct": false
         },
         {
-          "text": "It was a response to Bebop music, simplifying harmony and song structure to make it more danceable.",
+          "text": "A response to Bebop music, making it more danceable.",
           "correct": true
         },
         {
           "text": "The name of the first west-coast jazz quartet",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "questionPrompt": "Grant Green released his album \"State Of Dreams\" in what year?",
+      "answers": [
+        {
+          "text": "1959",
+          "correct": false
+        },
+        {
+          "text": "1954",
+          "correct": false
+        },
+        {
+          "text": "1964",
+          "correct": true
+        },
+        {
+          "text": "1987",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "questionPrompt": "Underground Canopy is a jazz-fusion band based in what major city?",
+      "answers": [
+        {
+          "text": "London, UK",
+          "correct": false
+        },
+        {
+          "text": "Albany, NY",
+          "correct": false
+        },
+        {
+          "text": "Paris, FR",
+          "correct": true
+        },
+        {
+          "text": "Milan, IT",
           "correct": false
         }
       ]
