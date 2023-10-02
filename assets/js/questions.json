@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "questionPrompt": "Miles Davis wrote over 60 studio albums playing what instrument in his band?",
+      "questionPrompt": "Miles Davis wrote over 60 albums playing what instrument in his band?",
       "answers": [
         {
           "text": "Saxophone",
@@ -106,7 +106,7 @@
       ]
     },
     {
-      "questionPrompt": "Bill Evans released his landmark album \"You Must Believe In Spring\" in what year?",
+      "questionPrompt": "What year did Bill Evans release his album \"You Must Believe In Spring\"",
       "answers": [
         {
           "text": "1979",
@@ -169,18 +169,18 @@
       ]
     },
     {
-      "questionPrompt": "What was \"Hard Bop\"?",
+      "questionPrompt": "What was \"Hard Bop\" as it relates to the cultural movement of jazz?",
       "answers": [
         {
-          "text": "Musicians would say this stage when they liked how the performance was going",
+          "text": "Musicians would say this on stage during a good performance",
           "correct": false
         },
         {
-          "text": "A subgenre of jazz, laying the groundwork for future Bebop musicians",
+          "text": "A subgenre of jazz, laying the groundwork for Bebop musicians",
           "correct": false
         },
         {
-          "text": "A response to Bebop music, making it more danceable.",
+          "text": "A response to Bebop music, making it more danceable",
           "correct": true
         },
         {

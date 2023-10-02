@@ -4,7 +4,6 @@ import questions from "./questions.json" assert { type: "json" };
 var startMenu = document.querySelector(".start-menu");
 var startButton = document.querySelector("#start-button");
 var leaderboardButton = document.querySelector("#leaderboard-button");
-var backButton = document.querySelector("#back-button");
 
 var questionView = document.querySelector(".question");
 var questionTitle = document.querySelector(".question-title");
@@ -26,6 +25,8 @@ var leaderboardView = document.querySelector("#leaderboard-view");
 var leaderboardPosition = document.querySelector("#leaderboard-positions");
 var leaderboardPrevious = ""; // To redirect user back to previous view
 getLeaderboardList();
+var backButton = document.querySelector("#back-button");
+var clearButton = document.querySelector("#clear-button");
 
 // List of questions, index of current question,
 // and selected answer object
@@ -164,10 +165,10 @@ function updateScore() {
     scoreEl.textContent = ("00000" + currentScore).slice(-5);
   }
 
-  // User earns points with remaining time / 5 + 250 for right answer
+  // User earns points with remaining time / 5 + 500 for right answer
   // as well as 15 additional seconds to their quiz time
   if (selectedAnswer["correct"] === true) {
-    currentScore += Math.floor(secondsRemaining / 5) + 250;
+    currentScore += Math.floor(secondsRemaining / 5) + 500;
     scoreEl.textContent = ("00000" + currentScore).slice(-5);
     secondsRemaining += 15;
   }
@@ -339,4 +340,13 @@ backButton.addEventListener("click", function () {
 
   // Reset leaderboardPrevious
   leaderboardPrevious = "";
+});
+
+// Resets leaderboard stats
+clearButton.addEventListener("click", function () {
+  localStorage.clear();
+  getLeaderboardList();
+  alert(
+    "Leaderboard has been cleared, refresh the page for updated leaderboard stats."
+  );
 });

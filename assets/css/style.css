@@ -182,23 +182,6 @@ button:hover {
   padding: 5%;
 }
 
-#credits {
-  font-size: x-small;
-  position: fixed;
-  margin-bottom: -47%;
-  color: var(--sand);
-}
-
-#credits a {
-  text-decoration: none;
-  color: var(--sand);
-  transition: font-size 0.3s ease;
-}
-
-#credits a:hover {
-  font-size: small;
-}
-
 #leaderboard-view {
   display: none;
   justify-content: center;
@@ -249,4 +232,126 @@ button:hover {
 
 .separator {
   width: 800px;
+}
+
+#credits {
+  font-size: x-small;
+  position: fixed;
+  margin-bottom: -47%;
+  color: var(--sand);
+}
+
+#credits a {
+  text-decoration: none;
+  color: var(--sand);
+  transition: font-size 0.3s ease;
+}
+
+#credits a:hover {
+  font-size: small;
+}
+
+/*
+  Standard "Medium" tablet size
+  Source : https://learn.microsoft.com/en-us/windows/apps/design/layout/screen-sizes-and-breakpoints-for-responsive-design
+*/
+@media screen and (max-width: 1008px) {
+  .start-menu {
+    align-self: center;
+    margin-top: 50%;
+  }
+
+  #end-game,
+  .question-card {
+    width: 600px;
+    height: 350px;
+  }
+
+  .question-title {
+    font-size: large;
+  }
+
+  .game-header {
+    font-size: 40px;
+  }
+
+  .answers {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .answers li {
+    font-size: x-small;
+    font-weight: bold;
+  }
+
+  .spacer {
+    width: 300px;
+  }
+
+  #game-results {
+    margin-bottom: 10%;
+  }
+
+  #credits {
+    margin-bottom: -65%;
+  }
+}
+
+/* 
+  Standard "Small" smartphone size
+  Source : https://learn.microsoft.com/en-us/windows/apps/design/layout/screen-sizes-and-breakpoints-for-responsive-design
+*/
+@media screen and (max-width: 640px) {
+  button {
+    width: 175px;
+  }
+
+  .start-menu {
+    align-self: center;
+    margin-top: 80%;
+  }
+
+  .start-menu h1 {
+    font-size: 55px;
+  }
+
+  #end-game,
+  .question-card {
+    width: 400px;
+    height: 350px;
+  }
+
+  .question-title {
+    margin-top: 5%;
+    font-size: medium;
+  }
+
+  .game-header {
+    font-size: 40px;
+  }
+
+  .answers {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .answers li {
+    font-size: x-small;
+    font-weight: bold;
+    width: 375px;
+  }
+
+  .spacer {
+    width: 125px;
+  }
+
+  #game-results {
+    margin-bottom: 10%;
+  }
+
+  #credits {
+    margin-bottom: 45%;
+    margin-bottom: -120%;
+  }
 }
