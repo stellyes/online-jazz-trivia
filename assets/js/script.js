@@ -4,6 +4,7 @@ import questions from "./questions.json" assert { type: "json" };
 var startMenu = document.querySelector(".start-menu");
 var startButton = document.querySelector("#start-button");
 var leaderboardButton = document.querySelector("#leaderboard-button");
+var backButton = document.querySelector("#back-button");
 
 var questionView = document.querySelector(".question");
 var questionTitle = document.querySelector(".question-title");
@@ -20,7 +21,9 @@ var endGameTitle = document.querySelector(".game-header");
 var endGameTime = document.querySelector("#time-remaining");
 var endGameScore = document.querySelector("#end-score");
 var returnHomeButton = document.querySelector("#return-home");
-var viewLeaderboardEnd = document.querySelector("#leaderboard-button");
+
+var leaderboardView = document.querySelector("#leaderboard-view");
+var leaderboardPrevious = ""; // To redirect user back to previous view
 
 // List of questions, index of current question,
 // and selected answer object
@@ -60,6 +63,52 @@ function fisherYates(array) {
   }
 
   return array;
+}
+
+// Creates new leaderboard in local storage. Abstracted for readability
+function newLeaderboard() {
+  localStorage.setItem("top-winners", [
+    {
+      name: "BOT",
+      score: 1000,
+    },
+    {
+      name: "BOT",
+      score: 900,
+    },
+    {
+      name: "BOT",
+      score: 800,
+    },
+    {
+      name: "BOT",
+      score: 700,
+    },
+    {
+      name: "BOT",
+      score: 600,
+    },
+    {
+      name: "BOT",
+      score: 500,
+    },
+    {
+      name: "BOT",
+      score: 400,
+    },
+    {
+      name: "BOT",
+      score: 300,
+    },
+    {
+      name: "BOT",
+      score: 200,
+    },
+    {
+      name: "BOT",
+      score: 100,
+    },
+  ]);
 }
 
 // Purely decorational. Fades elements in and out.
@@ -161,6 +210,45 @@ function fillQuestion() {
   }
 }
 
+// Checks leaderboard for new high score
+function checkLeaderboard() {
+  // Get leaderboard list for comparison
+  var leaderboardList = localStorage.getItem("top-winners");
+
+  // If leaderboardList does not exist in local storage, create
+  if (leaderboardList === null || leaderboardList.length === 0) {
+    newLeaderboard();
+  }
+
+  // Checks current score against
+  for (var i = 0; i < leaderboardList.length; i++) {
+    if (currentScore > leaderboardList[i]) {
+      // Proper prompt output for placement
+      if (i === 0) {
+        var place = "1st";
+      } else if (i === 1) {
+        var place = "2nd";
+      } else if (i === 2) {
+        var place = "3rd";
+      } else {
+        var place = `${i + 1}th`;
+      }
+
+      // Gets user input and checks for proper formatting
+      var initials = prompt(
+        `Congratulations! You placed ${place} on the leaderboard!`,
+        "Enter your initials"
+      );
+      while (initials.length > 3) {
+        initials = prompt(
+          "Please enter your initials, maximum of three characters",
+          "Enter your initials"
+        );
+      }
+    }
+  }
+}
+
 // Hides main menu and displays questions
 startButton.addEventListener("click", function () {
   currentScore = 0; // Reset score if previous game was played
@@ -184,10 +272,10 @@ submitButton.addEventListener("click", function () {
   // If question index is equal to last index in
   // questionList, close game.
   if (currentQuestion === questionList.length - 1) {
+    clearInterval(timeInterval);
     endScreen();
+    checkLeaderboard();
   }
-
-  console.log("we tried to submit");
 
   if (selectedAnswer["correct"] === true) {
     answerReply.textContent = correctAnswer;
@@ -212,4 +300,26 @@ quitButton.addEventListener("click", function () {
 returnHomeButton.addEventListener("click", function () {
   endGameView.removeAttribute("style", "display: flex");
   startMenu.removeAttribute("style", "display: none");
+});
+
+leaderboardButton.addEventListener("click", function () {
+  if (endGameView.getAttribute("style") === "display: flex") {
+    endGameView.removeAttribute("style", "display: flex");
+    leaderboardView.setAttribute("style", "display: flex");
+    leaderboardPrevious = "endGame";
+  } else {
+    startMenu.removeAttribute("style", "display: flex");
+    leaderboardView.setAttribute("style", "display: flex");
+    leaderboardPrevious = "startMenu";
+  }
+});
+
+backButton.addEventListener("click", function () {
+  leaderboardView.removeAttribute("style", "display: flex");
+
+  if (leaderboardPrevious === "startMenu") {
+    startMenu.setAttribute("style", "display: flex");
+  } else if (leaderboardPrevious === "endGame") {
+    leaderboardView.setAttribute("style", "display: flex");
+  }
 });

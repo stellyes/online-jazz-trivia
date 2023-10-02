@@ -127,64 +127,64 @@
       ]
     },
     {
-      "questionPrompt": "#7 This is a test question for debugging purposes.",
+      "questionPrompt": "Where does the name \"Airegin\" by Sonny Rollins come from?",
       "answers": [
         {
-          "text": "wrong",
+          "text": "This was name of the street he grew up on",
           "correct": false
         },
         {
-          "text": "wrong",
+          "text": "This was his wife's maiden name",
           "correct": false
         },
         {
-          "text": "right",
+          "text": "It's \"Nigeria\" spelled backwards",
           "correct": true
         },
         {
-          "text": "wrong",
+          "text": "He would continually hear Aaiegin in his dreams",
           "correct": false
         }
       ]
     },
     {
-      "questionPrompt": "#8 This is a test question for debugging purposes.",
+      "questionPrompt": "Who were the members of Miles Davis' second quintet?",
       "answers": [
         {
-          "text": "wrong",
+          "text": "Miles Davis, John Coltrane, Philly Joe Jones, Scott LaFaro, Bill Evans",
           "correct": false
         },
         {
-          "text": "wrong",
+          "text": "Miles Davis, Max Roach, George Morrow, Harold Land, Richie Powell",
           "correct": false
         },
         {
-          "text": "right",
+          "text": "Miles Davis, Wayne Shorter, Tony Williams, Ron Carter, Herbie Hancock",
           "correct": true
         },
         {
-          "text": "wrong",
+          "text": "Miles Davis, Freddie Hubbard, Wynton Marsalis, Clifford Brown, Dizzy Gillespie",
           "correct": false
         }
       ]
     },
     {
-      "questionPrompt": "#9 This is a test question for debugging purposes.",
+      "questionPrompt": "What was \"Hard Bop\"?",
       "answers": [
         {
-          "text": "wrong",
+          "text": "Something musicians would say on stage when they liked how the performance was going",
           "correct": false
         },
         {
-          "text": "wrong",
+          "text": "It was a precursor to Bebop music, laying the groundwork for future Bebop musicians",
           "correct": false
         },
         {
-          "text": "right",
+          "text": "It was a response to Bebop music, simplifying harmony and song structure to make it more danceable.",
           "correct": true
         },
         {
-          "text": "wrong",
+          "text": "The name of the first west-coast jazz quartet",
           "correct": false
         }
       ]
