@@ -105,6 +105,7 @@ button:hover {
 
 .spacer {
   text-align: center;
+  align-self: flex-start;
   width: 500px;
 }
 

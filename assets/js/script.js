@@ -114,6 +114,12 @@ function endScreen() {
 
   endGameView.setAttribute("style", "display: flex");
   questionView.removeAttribute("style", "display: flex");
+
+  // One second delay on checkLeaderboard to
+  // allow endScreen to render
+  setTimeout(function () {
+    checkLeaderboard();
+  }, 1000);
 }
 
 function countdown() {
@@ -275,11 +281,6 @@ submitButton.addEventListener("click", function () {
   if (currentQuestion === questionList.length - 1) {
     clearInterval(timeInterval);
     endScreen();
-    // One second delay on checkLeaderboard to
-    // allow endScreen to render
-    setTimeout(function () {
-      checkLeaderboard();
-    }, 1000);
   }
 
   // Display correct/incorrect message when user
