@@ -10,8 +10,11 @@ Think you know your stuff about Jazz history? Put your knowledge to the test wit
 ## How to Play
 
 Once pressing start, you'll be presented with a list of questions.
+
 [![ezgif-com-video-to-gif.gif](https://i.postimg.cc/XJSnHJmP/ezgif-com-video-to-gif.gif)](https://postimg.cc/Ty08hRRj)
+
 A right answer earns you a minimum of 500 points with an additional time bonus if you find yourself on a hot-streak! Answer all the questions in time to win the game!
+
 [![Screenshot-2023-10-02-at-11-30-27-PM.png](https://i.postimg.cc/Y2vJGkPG/Screenshot-2023-10-02-at-11-30-27-PM.png)](https://postimg.cc/dDKWgMww)
 
 ### Do well enough and earn yourself a spot on the leaderboard!
