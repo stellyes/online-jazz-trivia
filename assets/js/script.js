@@ -4,7 +4,6 @@ import questions from "./questions.json" assert { type: "json" };
 var startMenu = document.querySelector(".start-menu");
 var startButton = document.querySelector("#start-button");
 var leaderboardButton = document.querySelector("#leaderboard-button");
-var backButton = document.querySelector("#back-button");
 
 var questionView = document.querySelector(".question");
 var questionTitle = document.querySelector(".question-title");
@@ -26,10 +25,15 @@ var leaderboardView = document.querySelector("#leaderboard-view");
 var leaderboardPosition = document.querySelector("#leaderboard-positions");
 var leaderboardPrevious = ""; // To redirect user back to previous view
 getLeaderboardList();
+var backButton = document.querySelector("#back-button");
+var clearButton = document.querySelector("#clear-button");
+
+var credits = document.querySelector("#credits");
 
 // List of questions, index of current question,
 // and selected answer object
-var questionList = questions.list;
+const questionList = questions.list;
+var questionListGrab = questionList;
 var currentQuestion = 0;
 var selectedAnswer = { default: "value" };
 
@@ -98,8 +102,8 @@ function fadeElement(element) {
 // Displays ending screen for user
 function endScreen() {
   // If user makes it through all the questitons such that
-  // currentQuestion === last index of questionList
-  if (currentQuestion === questionList.length - 1) {
+  // currentQuestion === last index of questionListGrab
+  if (currentQuestion === questionListGrab.length - 1) {
     endGameTitle.textContent = playerWon;
   } else {
     endGameTitle.textContent = playerLost;
@@ -137,11 +141,6 @@ function countdown() {
       ":" +
       ("00" + (secondsRemaining % 60)).slice(-2);
 
-    // Displays time in red when running low
-    if (timerEl.textContent === "0:10") {
-      timerEl.setAttribute("style", "color: red");
-    }
-
     // Stop timer and go to endScreen if user fails
     if (secondsRemaining === 0) {
       timerEl.textContent = "";
@@ -164,10 +163,10 @@ function updateScore() {
     scoreEl.textContent = ("00000" + currentScore).slice(-5);
   }
 
-  // User earns points with remaining time / 5 + 250 for right answer
+  // User earns points with remaining time / 5 + 500 for right answer
   // as well as 15 additional seconds to their quiz time
   if (selectedAnswer["correct"] === true) {
-    currentScore += Math.floor(secondsRemaining / 5) + 250;
+    currentScore += Math.floor(secondsRemaining / 5) + 500;
     scoreEl.textContent = ("00000" + currentScore).slice(-5);
     secondsRemaining += 15;
   }
@@ -176,11 +175,11 @@ function updateScore() {
 // Takes in index of question child and occupies text
 // fields with corresponding values
 function fillQuestion() {
-  questionTitle.textContent = questionList[currentQuestion].questionPrompt;
+  questionTitle.textContent = questionListGrab[currentQuestion].questionPrompt;
 
   // Shuffle answers in random order for
   // each occurance and fills text conent
-  var answers = fisherYates(questionList[currentQuestion].answers);
+  var answers = fisherYates(questionListGrab[currentQuestion].answers);
   for (var i = 0; i < 4; i++) {
     questionAnswers.children[i].textContent = answers[i].text;
   }
@@ -259,11 +258,15 @@ function fillLeaderboard() {
 // Hides main menu and displays questions
 startButton.addEventListener("click", function () {
   currentScore = 0; // Reset score if previous game was played
+  currentQuestion = 0; // Reset currentQuestion
   scoreEl.textContent = "00000"; // Reset score display
-  questionList = fisherYates(questionList);
+  // Get fresh copy of questionListGrab to sort
+
+  var questionCopy = questionListGrab;
   fillQuestion();
   startMenu.setAttribute("style", "display: none");
   questionView.setAttribute("style", "display: flex");
+  credits.setAttribute("style", "display: none");
   countdown();
 });
 
@@ -271,30 +274,30 @@ startButton.addEventListener("click", function () {
 // corresponding selection's data in selectedAnswer
 questionAnswers.addEventListener("click", function () {
   var answerIndex = document.activeElement.getAttribute("tabindex") - 1;
-  selectedAnswer = questionList[currentQuestion].answers[answerIndex];
+  selectedAnswer = questionListGrab[currentQuestion].answers[answerIndex];
 });
 
 // Submits question and progresses to next question
 submitButton.addEventListener("click", function () {
   // If question index is equal to last index in
-  // questionList, close game.
-  if (currentQuestion === questionList.length - 1) {
+  // questionListGrab, close game.
+  if (currentQuestion === 9) {
     clearInterval(timeInterval);
     endScreen();
-  }
-
-  // Display correct/incorrect message when user
-  // answers a question
-  if (selectedAnswer["correct"] === true) {
-    answerReply.textContent = correctAnswer;
   } else {
-    answerReply.textContent = incorrectAnswer;
-  }
-  fadeElement(answerReply);
+    // Display correct/incorrect message when user
+    // answers a question
+    if (selectedAnswer["correct"] === true) {
+      answerReply.textContent = correctAnswer;
+    } else {
+      answerReply.textContent = incorrectAnswer;
+    }
+    fadeElement(answerReply);
 
-  updateScore(); // Update user score
-  currentQuestion++; // Increment to next question in list
-  fillQuestion(); // Occupy text fields with new question
+    updateScore(); // Update user score
+    currentQuestion++; // Increment to next question in list
+    fillQuestion(); // Occupy text fields with new question
+  }
 });
 
 // If user decides to quit mid-game, this returns them to
@@ -303,40 +306,34 @@ quitButton.addEventListener("click", function () {
   clearInterval(timeInterval);
   startMenu.removeAttribute("style", "display: none");
   questionView.removeAttribute("style", "display: flex");
+  credits.removeAttribute("style", "display: none");
 });
 
 returnHomeButton.addEventListener("click", function () {
   endGameView.removeAttribute("style", "display: flex");
   startMenu.removeAttribute("style", "display: none");
+  credits.removeAttribute("style", "display: none");
 });
 
 leaderboardButton.addEventListener("click", function () {
   // Fill leaderboard with most recent stats
   fillLeaderboard();
-
-  // Hides corresponding HTML elements depending on what screen
-  // user is selecting leaderboard from
-  if (endGameView.getAttribute("style") === "display: flex") {
-    endGameView.removeAttribute("style", "display: flex");
-    leaderboardView.setAttribute("style", "display: flex");
-    leaderboardPrevious = "endGame";
-  } else {
-    startMenu.setAttribute("style", "display: none");
-    leaderboardView.setAttribute("style", "display: flex");
-    leaderboardPrevious = "startMenu";
-  }
+  startMenu.setAttribute("style", "display: none");
+  leaderboardView.setAttribute("style", "display: flex");
+  credits.setAttribute("style", "display: none");
 });
 
 backButton.addEventListener("click", function () {
   leaderboardView.removeAttribute("style", "display: flex");
+  startMenu.removeAttribute("style", "display: none");
+  credits.removeAttribute("style", "display: none");
+});
 
-  // Direct user back to the corresponding previous screen
-  if (leaderboardPrevious === "startMenu") {
-    startMenu.removeAttribute("style", "display: none");
-  } else if (leaderboardPrevious === "endGame") {
-    leaderboardView.setAttribute("style", "display: flex");
-  }
-
-  // Reset leaderboardPrevious
-  leaderboardPrevious = "";
+// Resets leaderboard stats
+clearButton.addEventListener("click", function () {
+  localStorage.clear();
+  getLeaderboardList();
+  alert(
+    "Leaderboard has been cleared, refresh the page for updated leaderboard stats."
+  );
 });
