@@ -261,6 +261,10 @@ button:hover {
   Source : https://learn.microsoft.com/en-us/windows/apps/design/layout/screen-sizes-and-breakpoints-for-responsive-design
 */
 @media screen and (max-width: 1008px) {
+  button {
+    transition: none;
+  }
+
   .start-menu {
     align-self: center;
     margin-top: 50%;
@@ -291,6 +295,7 @@ button:hover {
     width: 100%;
     font-size: 14px;
     font-weight: bold;
+    transition: none;
   }
 
   .game-buttons {
