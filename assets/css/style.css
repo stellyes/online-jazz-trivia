@@ -35,7 +35,8 @@ body div {
 button {
   width: 225px;
   min-height: 55px;
-  margin: 3%;
+
+  margin: 15px 10px;
   letter-spacing: 0.2rem;
   font-size: large;
   font-weight: bolder;
@@ -85,7 +86,7 @@ button:hover {
 }
 
 .question-card {
-  width: 800px;
+  width: 75%;
   height: 350px;
   display: flex;
   flex-direction: column;
@@ -107,12 +108,15 @@ button:hover {
   text-align: center;
   align-self: flex-start;
   width: 500px;
+  margin-top: -15%;
 }
 
 .question-title {
-  padding: 5%;
-  padding-bottom: 0%;
+  padding: 40px;
+  padding-bottom: 10px;
   align-self: center;
+  text-align: center;
+  max-width: 800px;
   font-size: x-large;
   font-weight: 600;
   color: #35155d;
@@ -129,7 +133,8 @@ button:hover {
 .answers li {
   align-self: center;
   padding: 12px 0px;
-  width: 87%;
+  width: 95%;
+  max-width: 800px;
   text-align: center;
   font-size: medium;
   color: #1f0c35;
@@ -146,7 +151,6 @@ button:hover {
 .game-buttons {
   display: flex;
   align-self: center;
-  margin-top: 0.7%;
 }
 
 #end-game {
@@ -231,13 +235,13 @@ button:hover {
 }
 
 .separator {
-  width: 800px;
+  width: 100%;
 }
 
 #credits {
   font-size: x-small;
   position: fixed;
-  margin-bottom: -47%;
+  margin-bottom: -600px;
   color: var(--sand);
 }
 
@@ -263,12 +267,12 @@ button:hover {
 
   #end-game,
   .question-card {
-    width: 600px;
+    width: 80%;
     height: 350px;
   }
 
   .question-title {
-    font-size: large;
+    font-size: 20px;
   }
 
   .game-header {
@@ -276,25 +280,49 @@ button:hover {
   }
 
   .answers {
-    margin-top: 30px;
-    margin-bottom: 20px;
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    width: 95%;
   }
 
   .answers li {
-    font-size: x-small;
+    width: 100%;
+    font-size: 14px;
     font-weight: bold;
+  }
+
+  .game-buttons {
+    margin: -5px 10px;
   }
 
   .spacer {
     width: 300px;
   }
 
-  #game-results {
-    margin-bottom: 10%;
+  .game-header {
+    margin-top: 35px;
+    font-size: 50px;
+  }
+
+  .game-results {
+    align-self: center;
+    margin-left: -3%;
+  }
+
+  .game-results li {
+    margin-top: -35px;
+    margin-bottom: 25px;
+    font-size: 25px;
+  }
+
+  #leaderboard-view {
+    margin: 2%;
   }
 
   #credits {
-    margin-bottom: -65%;
+    font-size: medium;
+    margin-bottom: -600px;
   }
 }
 
@@ -318,17 +346,18 @@ button:hover {
 
   #end-game,
   .question-card {
-    width: 400px;
+    width: 90%;
     height: 350px;
   }
 
   .question-title {
-    margin-top: 5%;
+    margin-top: 0px;
     font-size: medium;
   }
 
   .game-header {
-    font-size: 40px;
+    font-size: 35px;
+    margin-top: 40px;
   }
 
   .answers {
@@ -336,22 +365,79 @@ button:hover {
     margin-bottom: 20px;
   }
 
-  .answers li {
-    font-size: x-small;
-    font-weight: bold;
-    width: 375px;
+  .game-buttons {
+    margin: -15px 15px;
   }
 
   .spacer {
     width: 125px;
   }
 
-  #game-results {
-    margin-bottom: 10%;
+  .answers li {
+    font-size: 12px;
+    font-weight: bold;
+    width: 100%;
+  }
+
+  .game-results {
+    margin-bottom: -15px;
+    margin-top: 35px;
+  }
+
+  #return-home {
+    margin-bottom: -10px;
   }
 
   #credits {
-    margin-bottom: 45%;
-    margin-bottom: -120%;
+    font-size: small;
+    margin-bottom: -600px;
+  }
+}
+
+/* Additional support for smallest screeens */
+@media screen and (max-width: 400px) {
+  .start-menu h1 {
+    font-size: 55px;
+    margin-bottom: 35px;
+  }
+
+  .question {
+    margin-top: -5%;
+  }
+
+  .question-title {
+    margin-top: 0px;
+    font-size: medium;
+  }
+
+  .game-header {
+    font-size: 35px;
+    margin-top: 40px;
+  }
+
+  .answers {
+    margin-top: 0px;
+    margin-bottom: 15px;
+  }
+
+  .game-buttons {
+    margin: -15px 15px;
+  }
+
+  .spacer {
+    width: 75px;
+    font-size: x-small;
+  }
+
+  .answers li {
+    font-size: 11px;
+    font-weight: bold;
+    max-height: 40px;
+    width: 100%;
+  }
+
+  #credits {
+    margin-bottom: -200px;
+    font-size: small;
   }
 }

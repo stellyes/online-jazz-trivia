@@ -169,27 +169,6 @@
       ]
     },
     {
-      "questionPrompt": "What was \"Hard Bop\" as it relates to the cultural movement of jazz?",
-      "answers": [
-        {
-          "text": "Musicians would say this on stage during a good performance",
-          "correct": false
-        },
-        {
-          "text": "A subgenre of jazz, laying the groundwork for Bebop musicians",
-          "correct": false
-        },
-        {
-          "text": "A response to Bebop music, making it more danceable",
-          "correct": true
-        },
-        {
-          "text": "The name of the first west-coast jazz quartet",
-          "correct": false
-        }
-      ]
-    },
-    {
       "questionPrompt": "Grant Green released his album \"State Of Dreams\" in what year?",
       "answers": [
         {
