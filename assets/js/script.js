@@ -38,7 +38,7 @@ var currentQuestion = 0;
 var selectedAnswer = { default: "value" };
 
 // Stats used globally and reset when game sarts
-var secondsRemaining = 540;
+var secondsRemaining = 60;
 var currentScore = 0;
 
 // Displayed when user answers question
@@ -164,11 +164,14 @@ function updateScore() {
   }
 
   // User earns points with remaining time / 5 + 500 for right answer
-  // as well as 15 additional seconds to their quiz time
+  // as well as 15 additional seconds to their quiz time. Inverse time
+  // effect if they answer incorrectly
   if (selectedAnswer["correct"] === true) {
     currentScore += Math.floor(secondsRemaining / 5) + 500;
     scoreEl.textContent = ("00000" + currentScore).slice(-5);
     secondsRemaining += 15;
+  } else {
+    secondsRemaining -= 15;
   }
 }
 
