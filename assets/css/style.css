@@ -87,6 +87,7 @@ button:hover {
 
 .question-card {
   width: 75%;
+  max-width: 1000px;
   height: 350px;
   display: flex;
   flex-direction: column;
